@@ -1,0 +1,121 @@
+:root {
+  /* Paleta oficial de marca */
+  --monastrell:         #85004D;
+  --azul-heraldico:     #1B5C9D;
+  --purpura-profundo:   #54334C;
+  --verde-envero:       #428C42;
+  --negro-enriquecido:  #121212;
+
+  /* Auxiliares */
+  --blanco:             #FFFFFF;
+  --crema-suave:        #F7F1EC;
+  --negro-puro:         #000000;
+}
+
+/* Tipografía Match
+   NOTA: los WOFF2 reales viven en /fonts/Match/WOFF2/ con guion bajo (Match_Regular, Match_Bold). */
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Match';
+  src: url('/fonts/Match/WOFF2/Match_Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Tipografía Bebas Neue Pro · pesos disponibles: Thin, Light, Book, Regular, Middle, Bold.
+   NOTA: la carpeta lleva un espacio en el nombre (Bebas%20Neue). */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Thin.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Book.woff2') format('woff2');
+  font-weight: 350;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Middle.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/Bebas%20Neue/BebasNeuePro-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}

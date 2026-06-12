@@ -1,0 +1,1833 @@
+/* scenes.css
+   Estilos por escena. Cada escena añade aquí su bloque conforme se implementa. */
+
+/* ============================================================
+   BLOQUE 4 · Cierre y cocktail  (scenes/07-cierre.js)
+   ============================================================ */
+
+.cie-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--negro-enriquecido);
+}
+
+/* Cada pulsación es una página absolute inset 0 con su propio fondo. */
+.cie-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+.cie-page.is-dark { background: var(--negro-enriquecido); }
+.cie-page.is-monastrell { background: var(--monastrell); }
+
+/* Puls. 59 · Agradecimiento */
+.cie-gracias {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 320px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cie-logo svg { display: block; height: 280px; width: auto; }
+
+/* Puls. 60 · Invitación cocktail */
+.cie-os {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+.cie-cocktail {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 220px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+}
+.cie-con {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1.1;
+  color: var(--blanco);
+  margin: 0;
+  text-align: center;
+}
+
+/* Loop de cierre (step 3) · ciclo de 3 frases en fondo Monastrell. */
+.cie-loop-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 120px;
+}
+.cie-loop-text {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 132px;
+  line-height: 1.15;
+  color: var(--blanco);
+  margin: 0;
+  max-width: 1700px;
+}
+.cie-loop-iso {
+  position: absolute;
+  bottom: 70px;
+  right: 80px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.cie-loop-iso svg { display: block; height: 90px; width: auto; }
+
+/* ============================================================
+   BLOQUE 2.6 · Tipografía  (scenes/09-tipografia.js)
+   ============================================================ */
+
+.tip-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+.tip-page {
+  position: absolute;
+  inset: 0;
+}
+
+/* Puls. 37 · Intro */
+.tip-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.tip-intro-l1 {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 1.1;
+  color: var(--blanco);
+  margin: 0;
+}
+.tip-intro-l2 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 170px;
+  line-height: 1.05;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* Puls. 38 · Match · J gigante + ficha */
+.tip-match {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+.tip-match-J {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 600px;
+  line-height: 0.9;
+  color: var(--blanco);
+  text-align: center;
+  margin: 0;
+  user-select: none;
+}
+.tip-match-info {
+  padding: 0 80px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--blanco);
+}
+.tip-match-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.tip-match-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 4px 0 8px;
+}
+.tip-match-body {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 820px;
+  margin: 0;
+}
+
+/* Puls. 39 · Abecedario Match */
+.tip-abc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 80px;
+}
+.tip-abc-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 36px;
+}
+.tip-abc-row.is-digits {
+  gap: 28px;
+  margin-top: 18px;
+}
+.tip-abc-char {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--blanco);
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.tip-abc-row.is-digits .tip-abc-char {
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Puls. 40 · Bebas Neue · ficha izq. + palabras dcha. */
+.tip-bebas {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+}
+.tip-bebas-info {
+  padding: 0 60px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tip-bebas-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: 0.04em;
+  color: var(--blanco);
+  margin: 0;
+  line-height: 1;
+}
+.tip-bebas-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 4px 0 8px;
+}
+.tip-bebas-body {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 720px;
+  margin: 0;
+}
+.tip-bebas-words {
+  padding: 0 80px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.tip-bebas-word {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  line-height: 0.95;
+  margin: 0;
+  white-space: nowrap;
+}
+.tip-bebas-word.is-1 { font-size: 200px; color: var(--blanco); }
+.tip-bebas-word.is-2 { font-size: 140px; color: rgba(255, 255, 255, 0.85); }
+.tip-bebas-word.is-3 { font-size: 100px; color: rgba(255, 255, 255, 0.6); }
+
+/* Puls. 41 · Jerarquía tipográfica · composición editorial */
+.tip-jer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 100px;
+  text-align: center;
+}
+.tip-jer-pre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+.tip-jer-titulo {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 180px;
+  line-height: 1.05;
+  color: var(--blanco);
+  margin: 0;
+}
+.tip-jer-sub {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 1.05;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 16px;
+}
+.tip-jer-body {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 1400px;
+  margin: 0;
+}
+
+/* ============================================================
+   BLOQUE 2.9 · Broche 700 años  (scenes/12-broche-700.js)
+   ============================================================ */
+
+.bro-root {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);
+  overflow: hidden;
+}
+
+.bro-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Puls. 51 / 52 · Página de la fecha 1327 → 2027 */
+.bro-fecha {
+  gap: 22px;
+}
+/* Odometer: cuatro cifras estilo "rodillo mecánico" */
+.bro-odo {
+  display: flex;
+  gap: 18px;
+  height: 360px;
+}
+.bro-odo-cell {
+  width: 200px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.bro-odo-wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bro-odo-wheel span {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 360px;
+  line-height: 360px;
+  color: var(--blanco);
+  text-align: center;
+  display: block;
+  height: 360px;
+  letter-spacing: 0;
+  opacity: 0.92;
+}
+
+.bro-fecha-line {
+  width: 300px;
+  height: 2px;
+  background: var(--blanco);
+  transform-origin: left center;
+  transform: scaleX(0);
+  margin: 16px 0 4px;
+  opacity: 0.6;
+}
+.bro-fecha-desc {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 1400px;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0;
+}
+.bro-fecha-desc .word {
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+/* Nota: NO usar text-shadow para "glow" en los dígitos. La sombra se vería cortada
+   en los bordes de cada .bro-odo-cell (que tiene overflow:hidden obligatoriamente
+   para mostrar solo un dígito), creando rectángulos visibles entre los gaps de las
+   cells. El "cierre dramático" del 2027 lo hace stepSalto2027 con un pulso de escala. */
+
+/* Puls. 54 · La cifra 700 · sobre Monastrell, blanco bold reducido para caber bien
+   en la pantalla 2048×768 con margen cómodo. */
+.bro-700-page {
+  gap: 24px;
+}
+.bro-700 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 440px;
+  line-height: 0.9;
+  color: var(--blanco);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.bro-700-sub1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 42px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 36px 0 0;
+}
+.bro-700-sub2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: 0.22em;
+  color: var(--blanco);
+  margin: 4px 0 0;
+}
+.bro-700-sub1 .word,
+.bro-700-sub2 .word { display: inline-block; margin-right: 0.18em; }
+
+/* Puls. 55 · Cierre Victoria · fondo BLANCO + logo completo centrado + sello.
+   El slogan suelto se omite porque el logo maestro ya incluye "CAPITAL DE LA
+   MONASTRELL" embebido (sería duplicarlo). */
+.bro-cierre {
+  background: var(--blanco);
+}
+.bro-cierre-logo {
+  height: 520px;
+}
+.bro-cierre-logo svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.bro-cierre-sello {
+  position: absolute;
+  top: 100px;
+  right: 120px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--monastrell);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--blanco);
+  box-shadow: 0 0 40px rgba(133, 0, 77, 0.35);
+}
+.bro-cierre-sello-700 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+}
+.bro-cierre-sello-divider {
+  width: 70px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 4px 0;
+}
+.bro-cierre-sello-fechas {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* Puls. 56 · Transición a alcaldesa · isotipo discreto */
+.bro-transit {
+  background: var(--negro-enriquecido);
+  align-items: stretch;
+  justify-content: stretch;
+}
+.bro-transit-iso {
+  position: absolute;
+  bottom: 80px;
+  right: 100px;
+  height: 120px;
+  opacity: 0.5;
+}
+.bro-transit-iso svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* ============================================================
+   BLOQUE 2.8 · Aplicaciones  (scenes/11-aplicaciones.js)
+   ============================================================ */
+
+.apl-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+.apl-page {
+  position: absolute;
+  inset: 0;
+}
+
+/* Puls. 45 · Intro */
+.apl-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.apl-intro-l1 {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 160px;
+  line-height: 1.05;
+  color: var(--blanco);
+  margin: 0;
+}
+.apl-intro-l2 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 220px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* Página de cada mockup · grid 62/38 */
+.apl-mock {
+  display: grid;
+  grid-template-columns: 62% 38%;
+  align-items: center;
+}
+.apl-mock-img {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px 40px 70px;
+}
+.apl-mock-img img {
+  max-width: 100%;
+  max-height: 680px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.45));
+}
+
+.apl-mock-info {
+  padding: 0 80px 0 30px;
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.apl-mock-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+.apl-mock-num {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 140px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+}
+.apl-mock-total {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+.apl-mock-line {
+  width: 120px;
+  height: 3px;
+  background: var(--blanco);
+  margin: 4px 0 14px;
+  transform-origin: left center;
+}
+.apl-mock-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 92px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.apl-mock-tagline {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 6px 0 0;
+}
+.apl-mock-tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 18px 0 0;
+}
+
+/* ============================================================
+   BLOQUE 2.7 · Iconografía  (scenes/10-iconografia.js)
+   ============================================================ */
+
+.ico-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+.ico-page {
+  position: absolute;
+  inset: 0;
+}
+
+/* Puls. 42 · Intro */
+.ico-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.ico-intro-l1 {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 1.1;
+  color: var(--blanco);
+  margin: 0;
+}
+.ico-intro-l2 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 180px;
+  line-height: 1.05;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* Puls. 43 · Trio de iconos (botella · castillo · uvas) */
+.ico-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  padding: 80px 140px;
+  gap: 60px;
+}
+.ico-trio-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+.ico-trio-svg {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ico-trio-svg svg {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.ico-trio-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.22em;
+  color: var(--blanco);
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+}
+.ico-trio-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 4px 0 0;
+  text-align: center;
+  max-width: 320px;
+}
+
+/* Puls. 44 · Sistema · patrón Monastrell con caja central */
+.ico-sistema {
+  background: var(--monastrell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ico-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ico-pattern svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ico-card {
+  position: relative;
+  z-index: 2;
+  background: var(--blanco);
+  padding: 56px 96px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 1300px;
+}
+.ico-card-title {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--monastrell);
+  margin: 0;
+}
+.ico-card-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.14em;
+  color: var(--negro-enriquecido);
+  margin: 0;
+}
+
+/* ============================================================
+   BLOQUE 2.5 · Paleta de colores  (scenes/08-paleta.js)
+   ============================================================ */
+
+/* Fondo BLANCO en todo el bloque (para que el Negro Enriquecido se vea como color y
+   no se confunda con el fondo). Todos los textos en negro. */
+.pal-root {
+  position: absolute;
+  inset: 0;
+  background: var(--blanco);
+  overflow: hidden;
+}
+
+/* Cada pulsación es una "página" absolute inset 0. */
+.pal-page {
+  position: absolute;
+  inset: 0;
+}
+
+/* Puls. 30 · Intro */
+.pal-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.pal-intro-line1,
+.pal-intro-line2 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 1.1;
+  color: var(--negro-enriquecido);
+  margin: 0;
+}
+.pal-intro-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.16em;
+  color: rgba(18, 18, 18, 0.65);
+  margin-top: 18px;
+}
+
+/* Puls. 31-35 · Stage de colores · una muestra grande + ficha grande + franja parqueada.
+   La paleta completa (puls. 36) vive en la MISMA página: los swatches se morphean a
+   posiciones de grid y, debajo, aparecen las fichas pequeñas. */
+.pal-swatch {
+  position: absolute;
+  /* left/top/width/height/borderRadius los maneja GSAP */
+}
+
+.pal-ficha {
+  position: absolute;
+  left: 1100px;
+  top: 320px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--negro-enriquecido);
+  max-width: 850px;
+}
+.pal-ficha-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1;
+  margin: 0;
+}
+.pal-ficha-desc {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  color: rgba(18, 18, 18, 0.65);
+  margin: 6px 0 14px;
+}
+.pal-ficha-tech {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.18em;
+  margin: 0;
+}
+
+/* Fichas pequeñas que aparecen bajo cada swatch en la paleta completa (puls. 36).
+   Posicionadas absolutamente en stage-local para que coincidan EXACTAMENTE con la
+   posición a la que morphean los swatches (sin desfase entre páginas). */
+.pal-fichita {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--negro-enriquecido);
+  max-width: 240px;
+}
+.pal-fichita-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  margin: 0;
+}
+.pal-fichita-desc {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.14em;
+  color: rgba(18, 18, 18, 0.65);
+  margin: 0;
+}
+.pal-fichita-tech {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.16em;
+  color: var(--negro-enriquecido);
+  margin: 0;
+}
+.pal-fichita-tech.is-muted { color: rgba(18, 18, 18, 0.65); }
+
+/* ============================================================
+   PRESENTADORA · Ángela Moreno  (scenes/13-presentadora.js)
+   Fondo Monastrell sólido + logo Victoria Crea grande + nombre pequeño.
+   ============================================================ */
+
+.pres-root {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);
+  overflow: hidden;
+}
+.pres-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+/* Logo Victoria Crea (VC_white.svg, ya viene en blanco). El SVG tiene viewBox
+   2518×548 (relación ~4.6:1); a 130 px de alto ocupa ~600 px de ancho. */
+.pres-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pres-logo svg {
+  height: 130px;
+  width: auto;
+  display: block;
+}
+/* Divisoria hairline entre el logo VC y "ÁNGELA MORENO". */
+.pres-divider {
+  width: 180px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.55);
+  margin: -18px 0;   /* compensa el gap general de la página para acercarla a los vecinos */
+}
+.pres-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 400;
+  font-size: 46px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  line-height: 1;
+  /* text-indent compensa el sesgo óptico del letter-spacing en texto centrado. */
+  text-indent: 0.14em;
+}
+/* Slogan Victoria Crea (VC_SLOGAN.svg) bajo el nombre · conserva sus colores
+   originales del SVG (no recoloreado). Aspect ratio del viewBox ~4:1. */
+.pres-slogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -32px;   /* compensa el gap general de la página (56) para acercarlo al nombre */
+}
+.pres-slogan svg {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* ============================================================
+   BLOQUE 3 · Intervención alcaldesa  (scenes/06-alcaldesa.js)
+   ============================================================ */
+
+.alc-root {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);   /* base: si falla el vídeo, queda el Monastrell sólido */
+  overflow: hidden;
+}
+
+/* Vídeo de fondo (mismo asset que la portada): cubre toda la pantalla, muteado y
+   en bucle. Si no carga, se elimina y queda el Monastrell sólido. */
+.alc-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tinte Monastrell ALTO por encima del vídeo · en la pantalla de la alcaldesa el
+   vídeo debe estar muy apagado para que no compita con el nombre/cargo y el logo
+   del ayto. 0.78 deja solo un leve "movimiento" tras el Monastrell. */
+.alc-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);
+  opacity: 0.78;
+}
+
+/* Cada pulsación es una "página". */
+.alc-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* Puls. 57 · Presentación */
+.alc-name {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 160px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+  white-space: nowrap;
+}
+.alc-name .word { display: inline-block; will-change: transform, opacity; }
+
+.alc-line {
+  width: 300px;
+  height: 3px;
+  background: var(--blanco);
+  transform-origin: left center;
+}
+
+.alc-cargo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* Puls. 63 · Durante el discurso · marcas discretas en las esquinas inferiores. */
+.alc-ayto {
+  position: absolute;
+  bottom: 80px;
+  right: 80px;
+}
+.alc-ayto svg { display: block; height: 72px; width: auto; }
+
+.alc-tag {
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  color: var(--blanco);
+  margin: 0;
+}
+
+/* ============================================================
+   BLOQUE 2.3 · Manifiesto  (scenes/04-manifiesto.js)
+   ============================================================ */
+
+.man-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+/* Cada pulsación es una "página" centrada en pantalla. Composición compacta:
+   tipografías reducidas (~25 %) y poco gap entre líneas; los resaltes van por NEGRITA
+   blanca (no por color Monastrell, que sobre fondo negro pierde nitidez en la LED). */
+.man-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.man-line {
+  font-family: 'Match', sans-serif;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+  max-width: 84%;
+  color: var(--blanco);
+}
+
+/* Puls. 13 · Síntesis · 2 líneas.
+   L1 fina (Regular) + L2 destacada (Bold y más grande) → el segundo verso remata.
+   Tamaños conservadores para que las dos líneas quepan sin envolver (especialmente
+   L1 que es la más larga: 73 caracteres). */
+.man-line.is-sint-l1 {
+  font-size: 42px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+  max-width: 95%;
+  white-space: nowrap;
+}
+.man-line.is-sint-l2 {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--blanco);
+  line-height: 1.2;
+  max-width: 95%;
+  white-space: nowrap;
+}
+
+/* Puls. 14 · Posicionamiento · 2 líneas. Misma jerarquía: L1 fina, L2 bold y mayor. */
+.man-line.is-pos-l1 {
+  font-size: 52px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.3;
+  max-width: 95%;
+  white-space: nowrap;
+}
+.man-line.is-pos-l2 {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--blanco);
+  line-height: 1.2;
+  max-width: 95%;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   BLOQUE 2.2 · Encuestas  (scenes/03-encuestas.js)
+   ============================================================ */
+
+.enc-root {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);     /* fondo Monastrell para TODO el bloque encuestas */
+  overflow: hidden;
+}
+
+/* Cada pulsación crea su "página" como contenedor absolute inset:0. */
+.enc-page {
+  position: absolute;
+  inset: 0;
+}
+
+/* Tipografías base reutilizables (todos los datos en BLANCO sobre Monastrell) */
+.enc-num {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  color: var(--blanco);
+  line-height: 1;
+  white-space: nowrap;
+  margin: 0;
+}
+.enc-desc {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--blanco);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+/* Puls. 5 · Intro · 2 columnas */
+.enc-intro-left {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.enc-intro-line {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+  white-space: nowrap;
+}
+.enc-intro-line.is-monastrell { color: var(--blanco); }  /* sobre Monastrell, todo blanco */
+.enc-intro-line .word { display: inline-block; will-change: transform, opacity; }
+
+.enc-intro-right {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  width: 1020px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* Puls. 6 · 417 · centrado: número + línea decorativa + texto */
+.enc-d1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  text-align: center;
+}
+.enc-d1-num { font-size: 360px; }
+.enc-d1-deco {
+  width: 200px;
+  height: 4px;
+  background: var(--blanco);
+  transform-origin: left center;
+}
+.enc-d1-desc { font-size: 48px; }
+
+/* Puls. 7 / 8 · layout horizontal: izq. número+desc, dcha. visual.
+   Reparto 58/42 (no 50/50): el "42,59%" / "52,37%" en Match Bold 280 px ocupa unos
+   960 px de ancho — necesita una columna izquierda más generosa que la mitad estricta
+   del stage. Con 58 % (~1188 px - 160 px de padding = 1028 px) el número entra cómodo.
+   Sin `overflow: hidden` (que recortaba el % al borde) y con `min-width: 0` para que
+   los items grid no se nieguen a encoger por debajo del min-content. */
+.enc-half {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 58% 42%;
+  align-items: center;
+}
+.enc-half-left {
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.enc-half-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  min-width: 0;
+}
+.enc-pct-280 { font-size: 280px; }
+.enc-desc-36 { font-size: 36px; max-width: 800px; line-height: 1.2; }
+
+/* Barra de progreso (puls. 7) · 600 px con margen lateral cómodo. */
+.enc-bar {
+  position: relative;
+  width: 600px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.enc-bar-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--blanco);
+  transform-origin: left center;
+}
+
+/* Castillo (puls. 8) */
+.enc-castillo svg { display: block; height: 500px; width: auto; }
+
+/* Puls. 9 · % arriba + grid de 4 cajas abajo */
+.enc-d4-top {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.enc-d4-pct { font-size: 220px; }
+.enc-d4-grid {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  width: 1700px;
+}
+.enc-attr {
+  border: 2px solid var(--blanco);
+  padding: 26px 20px;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  letter-spacing: 0.1em;
+  color: var(--blanco);
+  border-radius: 4px;
+  transition: none;       /* las animaciones las lleva GSAP */
+}
+/* En fondo Monastrell todo es blanco, así que la activación se diferencia con un fill
+   blanco sutil + (vía GSAP) un glow blanco breve. */
+.enc-attr.is-on {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Puls. 10 · 9,78% (impacto, sin contador) */
+.enc-d5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
+}
+.enc-d5-num { font-size: 380px; }
+.enc-d5-desc { font-size: 42px; }
+/* Puls. 10 sin placeholder de fondo · la pantalla queda limpia (Monastrell + número + texto). */
+
+/* Puls. 11 · ORGULLO */
+.enc-d6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+}
+.enc-d6-intro,
+.enc-d6-outro {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.18em;
+  margin: 0;
+}
+.enc-d6-orgullo {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 360px;
+  line-height: 1;
+  color: var(--blanco);
+  margin: 0;
+}
+.enc-d6-orgullo .letter { display: inline-block; will-change: transform, opacity; }
+
+/* Puls. NUEVAS · Perfil de la muestra · círculos */
+.enc-perfil-tag {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.enc-circles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);     /* leve compensación visual por el tag de arriba */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+}
+.enc-circles.is-3 { gap: 80px; }
+.enc-circle-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.enc-circle {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+.enc-circle-pct {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  color: var(--monastrell);
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.enc-circle-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: var(--blanco);
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+.enc-circles.is-3 .enc-circle {
+  width: 320px;
+  height: 320px;
+}
+.enc-circles.is-3 .enc-circle-pct { font-size: 84px; }
+.enc-circles.is-3 .enc-circle-label { font-size: 34px; }
+
+/* Puls. 12 · Síntesis · header "RESUMEN" arriba + grid de 6 columnas centrado */
+.enc-sint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+.enc-sint-header {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.32em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-indent: 0.32em;   /* compensa el sesgo óptico del letter-spacing en texto centrado */
+}
+.enc-sint-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  width: 100%;
+}
+.enc-sint-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+}
+.enc-sint-num {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  font-size: 96px;
+  color: var(--blanco);
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.enc-sint-desc {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--blanco);
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  margin: 0;
+}
+.enc-sint-divider {
+  position: absolute;
+  top: 22%;
+  bottom: 22%;
+  right: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.35);   /* más visible sobre fondo Monastrell */
+  transform-origin: top center;
+}
+
+/* ============================================================
+   BLOQUE 2.1 · Por qué cambiar  (scenes/02-por-que-cambiar.js)
+   ============================================================ */
+
+.pq-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+/* Puls. 3 · Pregunta: 2 líneas centradas.
+   Línea 1: "¿Por qué cambia" (con "cambia" inline en Monastrell + scale back.out).
+   Línea 2: "Jumilla su marca?" (palabras con stagger). */
+.pq-pregunta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pq-line {
+  font-family: 'Match', sans-serif;
+  font-size: 130px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--blanco);
+  text-align: center;
+}
+
+.pq-pregunta .word { display: inline-block; will-change: transform, opacity; }
+.pq-cambia {
+  display: inline-block;
+  color: var(--monastrell);
+  will-change: transform, opacity;
+}
+
+/* Puls. 4 · Diagnóstico · 2 líneas centradas, con subrayado Monastrell bajo "su gente". */
+.pq-respuesta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* "su gente" inline · wrapper relativo para anclar el subrayado debajo del span. */
+.pq-su-gente-wrap {
+  display: inline-block;
+  position: relative;
+}
+.pq-su-gente {
+  display: inline-block;
+  color: var(--monastrell);
+}
+.pq-underline {
+  position: absolute;
+  display: block;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--monastrell);
+  transform-origin: left center;
+}
+
+/* ============================================================
+   BLOQUE 1 · Apertura del presentador/a  (scenes/01-apertura.js)
+   ============================================================ */
+
+.apertura-root {
+  position: absolute;
+  inset: 0;
+  background: var(--negro-enriquecido);
+  overflow: hidden;
+}
+
+/* Bloque centrado verticalmente con las dos líneas del título + subtexto. */
+.apertura-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.apertura-line1,
+.apertura-line2 {
+  font-family: 'Match', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.apertura-line1 {
+  font-size: 140px;
+  color: var(--blanco);
+}
+
+/* Línea 2 ahora también en blanco (todo el título en blanco sobre negro enriquecido).
+   Tamaño 180 px porque a 220 px (lo que pedía el guion original) se salía del ancho. */
+.apertura-line2 {
+  font-size: 180px;
+  color: var(--blanco);
+}
+
+/* Cada palabra va en su propio span para hacer stagger por palabra. */
+.apertura-line1 .word,
+.apertura-line2 .word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ============================================================
+   BLOQUE 0 · Loop de recepción  (scenes/00-loop-recepcion.js)
+   ============================================================ */
+
+.recep-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--monastrell);  /* base: si falla el vídeo, queda el Monastrell sólido */
+}
+
+/* Vídeo de fondo: cubre toda la pantalla. El overlay Monastrell por encima da la
+   transparencia tintada. */
+.recep-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tinte Monastrell sobre el vídeo: deja ver el movimiento del fondo pero mantiene el
+   color de marca dominante. 0.55 de opacidad = el vídeo "respira" sin competir. */
+.recep-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--monastrell);
+  opacity: 0.55;
+}
+
+/* Contenido (logo del ayto + título). Es lo que "respira" con la escala sutil. */
+.recep-content {
+  position: absolute;
+  inset: 0;
+}
+
+/* Logo del Ayuntamiento: discreto, tercio superior, en blanco. */
+.recep-ayto {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  transform: translate(-50%, -50%);
+}
+.recep-ayto svg,
+.recep-ayto img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+.recep-ayto-placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.22em;
+  color: var(--blanco);
+}
+
+/* Bloque central de título · 3 LÍNEAS BEBAS NEUE.
+   Mismo tamaño y tracking en las 3, el énfasis lo lleva el peso:
+   - L1 y L3 en Middle (500, "semibold" equivalente de Bebas Pro)
+   - L2 en Bold (700)
+   El bloque se lee como una sola pieza con énfasis natural en el corazón. */
+.recep-title-block {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.recep-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 60px;
+  letter-spacing: 0.14em;
+  line-height: 1.18;
+  color: var(--blanco);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  /* Compensación óptica del letter-spacing en texto centrado: sin esto el bloque
+     queda ópticamente desplazado a la izquierda (la última letra arrastra su tracking). */
+  text-indent: 0.14em;
+}
+.recep-title span { display: block; }
+.recep-title-l1 { font-weight: 500; }
+.recep-title-l2 { font-weight: 700; }
+.recep-title-l3 { font-weight: 500; }
+
+/* ============================================================
+   BLOQUE 2.4 · Revelación del logo  (scenes/05-revelacion-logo.js)
+   ============================================================ */
+
+.reveal-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Capa de fondo animable: arranca en negro puro (puls. 15) y cruza a crema (puls. 16).
+   Va detrás del resto del contenido (es el primer hijo de .reveal-root). */
+.reveal-bg {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+/* Punto de luz inicial (pulsación 15) */
+.reveal-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;          /* centrado exacto sin transform (lo usa GSAP) */
+  border-radius: 50%;
+  background: var(--monastrell);
+  box-shadow: 0 0 40px var(--monastrell);
+}
+
+/* Logo maestro completo (LOGO_COMPLETO_JUMILLA_TURISMO.svg), centrado.
+   Alto fijo para que TODO el logo (incl. slogan) quepa en los 768px de alto con
+   margen; el ancho se deduce del viewBox. Las piezas se revelan por opacidad: la
+   composición es pixel-perfect respecto al manual. */
+.reveal-master {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 650px;          /* logo entero (incl. slogan) ~650px, centrado, con margen */
+  width: auto;
+  display: block;
+}
+
+/* --- Narrativa de marca (un concepto por pulsación, centrado y luego recogido a la
+   franja inferior). Todo se posiciona en coordenadas de stage con GSAP. --- */
+
+/* Colores: muestra grande centrada (un color por pulsación). */
+.rev-cswatch {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+}
+
+.rev-cname {
+  position: absolute;
+  font-family: 'Match', sans-serif;
+  font-size: 46px;
+  color: var(--negro-enriquecido);
+  white-space: nowrap;
+}
+
+.rev-chex {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: var(--negro-enriquecido);
+  white-space: nowrap;
+}
+
+/* Tipografía: nombre de la fuente escrito en la propia fuente (una por pulsación). */
+.rev-typoword {
+  position: absolute;
+  font-size: 150px;
+  line-height: 1;
+  color: var(--monastrell);
+  white-space: nowrap;
+}
+
+.rev-typorole {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.22em;
+  color: var(--negro-enriquecido);
+  white-space: nowrap;
+}
+
+/* Iconos voladores: SVG del icono clonado del maestro. Alto base por inline; el resto
+   lo gestiona GSAP (xPercent/yPercent para centrar, x/y/scale para mover y volar). */
+/* El flyer es un DIV (lo anima GSAP: position/scale/autoAlpha) que envuelve al <svg>.
+   GSAP sobre un <svg> creado dinámicamente no aplica bien autoAlpha; sobre un div sí. */
+.rev-flyer {
+  position: absolute;
+  display: inline-block;
+}
+
+.rev-flyer-svg {
+  display: block;
+  height: 200px;
+  width: auto;
+}
+
+.rev-iconlabel {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.12em;
+  color: var(--negro-enriquecido);
+  white-space: nowrap;
+}
+
+/* Variantes del logo (pulsación 21) */
+.reveal-variants {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 64px;
+}
+
+.variant-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Regla de contraste: logos a color → tarjeta blanca; logo en blanco → tarjeta
+   Monastrell. La sombra separa las tarjetas blancas del fondo crema de la escena. */
+.variant-frame {
+  width: 380px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  border-radius: 6px;
+  background: var(--blanco);
+  box-shadow: 0 10px 40px rgba(18, 18, 18, 0.18);
+}
+
+.variant-frame.is-monastrell {
+  background: var(--monastrell);
+}
+
+.variant-frame svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Etiquetas sobre el fondo crema de la escena → texto oscuro para contraste. */
+.variant-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  color: var(--negro-enriquecido);
+  opacity: 0.9;
+}
