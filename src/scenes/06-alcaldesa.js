@@ -2,7 +2,7 @@
 // BLOQUE 3 · Intervención alcaldesa · Pulsaciones 62-63 (GUION_TECNICO.md).
 //
 //   step(1) · Puls. 62 · Presentación de la alcaldesa
-//     Fondo: mismo vídeo de la portada (videoloop_1.mp4) en loop + tinte Monastrell
+//     Fondo: mismo vídeo de la portada (videoloop_1.webm) en loop + tinte Monastrell
 //     al 55 % por encima (continuidad institucional con la pantalla de recepción).
 //     Centrado: nombre "Seve González" en Match 160 bold blanco (entrada palabra a
 //     palabra), línea decorativa blanca de 300×3 px (dibujada de izq. a der. con
@@ -16,7 +16,7 @@ import { gsap } from 'gsap';
 import { injectSVG } from '../utils/svg-helpers.js';
 
 const AYTO_LOGO = '/logo/logo_ayto.svg';
-const VIDEO_SRC = '/video/videoloop_1.mp4';
+const VIDEO_SRC = '/video/videoloop_1.webm';
 
 export default {
   id: 'alcaldesa',

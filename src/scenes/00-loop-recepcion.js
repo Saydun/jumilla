@@ -5,7 +5,7 @@
 // Arranca SOLA al cargar y queda en bucle sereno hasta la primera pulsación.
 //
 // Diseño discreto (versión rediseñada con vídeo de fondo):
-//   - Fondo: vídeo /assets/video/videoloop_1.mov en loop, muteado, object-fit cover.
+//   - Fondo: vídeo /assets/video/videoloop_1.webm en loop, muteado, object-fit cover.
 //     Encima, una capa Monastrell al 55 % que tiñe la imagen pero la deja respirar.
 //   - Centro superior: logo del Ayuntamiento (blanco, ~90 px de alto).
 //   - Centro: bloque tipográfico discreto · 3 líneas (kicker / título / locator) con
@@ -19,7 +19,7 @@ import { gsap } from 'gsap';
 import { injectSVG } from '../utils/svg-helpers.js';
 
 const AYTO_LOGO = '/logo/logo_ayto.svg';
-const VIDEO_SRC = '/video/videoloop_1.mp4';
+const VIDEO_SRC = '/video/videoloop_1.webm';
 
 export default {
   id: 'loop-recepcion',
@@ -36,8 +36,8 @@ export default {
     this.state.root = root;
 
     // ---- Vídeo de fondo ----
-    // .mp4 H.264. Si el archivo no carga (códec o ausencia), se elimina y queda el
-    // Monastrell sólido como fondo.
+    // .webm VP9 (~26 MB). Si el archivo no carga (códec o ausencia), se elimina y
+    // queda el Monastrell sólido como fondo.
     const video = document.createElement('video');
     video.className = 'recep-video';
     video.muted = true;
@@ -65,8 +65,8 @@ export default {
     };
     video.addEventListener('error', dropVideo);
     video.addEventListener('loadeddata', acceptVideo);
-    // Margen amplio (5 s) porque el .mp4 pesa ~210 MB.
-    this.state.videoTimeout = setTimeout(dropVideo, 5000);
+    // Timeout cómodo (3 s) para el .webm de ~26 MB.
+    this.state.videoTimeout = setTimeout(dropVideo, 3000);
     video.src = VIDEO_SRC;
 
     // Tinte Monastrell al 55 % por encima del vídeo.
