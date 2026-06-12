@@ -20,7 +20,7 @@
 
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { injectSVG, setupStrokeDraw } from '../utils/svg-helpers.js';
+import { injectSVG, setupStrokeDraw, recolorSVG } from '../utils/svg-helpers.js';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -359,18 +359,28 @@ export default {
     root.appendChild(variants);
     this.state.variants = variants;
 
+    // 5 variantes en fila:
+    //  - mode 'color'  → fondo blanco (tarjeta), logo con sus colores.
+    //  - mode 'blanco' → fondo Monastrell, logo blanco.
+    //  - mode 'negro'  → fondo gris claro, logo recoloreado a negro pleno.
     const defs = [
-      { path: '/logo/LOGO_COMPLETO_JUMILLA_TURISMO.svg', label: 'PRINCIPAL',  prefix: 'v-principal',  dark: false },
-      { path: '/logo/LOGO_HORIZONTAL.svg',               label: 'HORIZONTAL', prefix: 'v-horizontal', dark: false },
-      { path: '/logo/LOGO_ISOTIPO.svg',                  label: 'ISOTIPO',    prefix: 'v-isotipo',    dark: false },
-      { path: '/logo/LOGO_COMPLETO_BLANCO.svg',          label: 'UNA TINTA',  prefix: 'v-blanco',     dark: true }
+      { path: '/logo/LOGO_COMPLETO_JUMILLA_TURISMO.svg', label: 'PRINCIPAL',          prefix: 'v-principal',  mode: 'color'  },
+      { path: '/logo/LOGO_HORIZONTAL.svg',               label: 'HORIZONTAL',         prefix: 'v-horizontal', mode: 'color'  },
+      { path: '/logo/LOGO_ISOTIPO.svg',                  label: 'ISOTIPO',            prefix: 'v-isotipo',    mode: 'color'  },
+      { path: '/logo/LOGO_COMPLETO_BLANCO.svg',          label: 'UNA TINTA · BLANCO', prefix: 'v-blanco',     mode: 'blanco' },
+      { path: '/logo/LOGO_COMPLETO_JUMILLA_TURISMO.svg', label: 'UNA TINTA · NEGRO',  prefix: 'v-negro',      mode: 'negro'  }
     ];
-    const cols = defs.map(({ path, label, prefix, dark }) => {
+    const cols = defs.map(({ path, label, prefix, mode }) => {
       const col = document.createElement('div');
       col.className = 'variant-col';
       const frame = document.createElement('div');
-      frame.className = 'variant-frame' + (dark ? ' is-monastrell' : '');
-      injectSVG(frame, preloader.getSVG(path), { prefix });
+      const frameMods = mode === 'blanco' ? ' is-monastrell'
+                      : mode === 'negro'  ? ' is-gris'
+                      : '';
+      frame.className = 'variant-frame' + frameMods;
+      const { svg } = injectSVG(frame, preloader.getSVG(path), { prefix });
+      // Modo 'negro' · forzar todo el SVG a negro pleno (sobre fondo gris claro).
+      if (mode === 'negro') recolorSVG(svg, '#000000');
       col.appendChild(frame);
       const lbl = document.createElement('div');
       lbl.className = 'variant-label';

@@ -1781,7 +1781,7 @@
   white-space: nowrap;
 }
 
-/* Variantes del logo (pulsación 21) */
+/* Variantes del logo (pulsación 21) · 5 columnas en fila. */
 .reveal-variants {
   position: absolute;
   inset: 0;
@@ -1789,34 +1789,36 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 32px;
-  padding: 0 64px;
+  gap: 26px;
+  padding: 0 56px;
 }
 
 .variant-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
-/* Regla de contraste: logos a color → tarjeta blanca; logo en blanco → tarjeta
-   Monastrell. La sombra separa las tarjetas blancas del fondo crema de la escena. */
+/* Regla de contraste por modo:
+   - color   → tarjeta blanca (logo con sus colores de marca).
+   - blanco  → tarjeta Monastrell (logo en blanco).
+   - gris    → tarjeta gris claro (#ECECEC) (logo recoloreado a negro pleno).
+   La sombra separa las tarjetas del fondo crema de la escena. */
 .variant-frame {
-  width: 380px;
-  height: 300px;
+  width: 320px;
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 26px;
   border-radius: 6px;
   background: var(--blanco);
   box-shadow: 0 10px 40px rgba(18, 18, 18, 0.18);
 }
 
-.variant-frame.is-monastrell {
-  background: var(--monastrell);
-}
+.variant-frame.is-monastrell { background: var(--monastrell); }
+.variant-frame.is-gris       { background: #ECECEC; }
 
 .variant-frame svg {
   width: 100%;
