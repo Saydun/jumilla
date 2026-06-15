@@ -51,12 +51,92 @@ export class Controller {
     this.setupResize();
     this.fitStage();
 
+    // Solo en dev (Vite elimina este bloque en `vite build`): expone helpers en
+    // window para saltar a cualquier escena/pulsación desde la consola y soporta
+    // navegación por hash de URL.
+    if (import.meta.env.DEV) {
+      this.setupDevShortcuts();
+    }
+
     // Cargar la primera escena
     if (this.scenes.length > 0) {
       await this.enterScene(0);
     } else {
       this.showPlaceholder();
     }
+  }
+
+  // Helpers de desarrollo · solo se cargan en `npm run dev`.
+  // Uso desde la consola del navegador:
+  //   jumpTo(10, 7)               → escena 10 (aplicaciones), pulsación 7 (TEXTIL)
+  //   jumpTo('aplicaciones', 7)   → mismo, por id
+  // Uso por hash de URL:
+  //   http://localhost:5173/#10/7
+  setupDevShortcuts() {
+    const sceneMap = this.scenes.reduce((acc, s, i) => { acc[s.id] = i; return acc; }, {});
+    const jump = (sceneRef, step = 1) => {
+      const idx = typeof sceneRef === 'string' ? sceneMap[sceneRef] : sceneRef;
+      if (typeof idx !== 'number' || idx < 0 || idx >= this.scenes.length) {
+        console.warn('[dev] jumpTo: escena no encontrada:', sceneRef);
+        console.info('[dev] escenas disponibles:', Object.entries(sceneMap)
+          .map(([id, i]) => `  ${i} · ${id} (${this.scenes[i].pulsaciones} puls)`).join('\n'));
+        return;
+      }
+      this.jumpTo(idx, step);
+    };
+    window.jumpTo = jump;
+
+    // Navegación por hash: #10/7 → escena 10, paso 7. #10 → escena 10, paso 1.
+    const hashJump = () => {
+      const m = window.location.hash.match(/^#(\w+)(?:\/(\d+))?$/);
+      if (!m) return;
+      const sceneRef = /^\d+$/.test(m[1]) ? parseInt(m[1], 10) : m[1];
+      const step = m[2] ? parseInt(m[2], 10) : 1;
+      jump(sceneRef, step);
+    };
+    window.addEventListener('hashchange', hashJump);
+    // Si la URL ya trae hash al cargar, esperamos a que el controller acabe de montar
+    // la escena 0 y luego saltamos.
+    if (window.location.hash) setTimeout(hashJump, 100);
+
+    console.info('%c[dev] jumpTo(sceneIndex, step) disponible en la consola.',
+      'background:#85004D;color:#fff;padding:4px 8px;border-radius:3px');
+    console.info('Escenas:\n' + Object.entries(sceneMap)
+      .map(([id, i]) => `  ${String(i).padStart(2)} · ${id} (${this.scenes[i].pulsaciones} puls)`).join('\n'));
+  }
+
+  // Salta directo a cualquier escena/pulsación. Útil para desarrollo.
+  // Nota: como cada step suele construir/mostrar su propia "página" y hacer cross-fade
+  // con la anterior, saltar directo al paso N normalmente FUNCIONA sin haber pasado
+  // por los previos. En las escenas que sí dependen de estado acumulado (alguna
+  // animación de salida del paso N-1), el resultado puede ser estéticamente
+  // "incompleto" pero suficiente para previsualizar.
+  async jumpTo(sceneIndex, step = 1) {
+    if (sceneIndex < 0 || sceneIndex >= this.scenes.length) return;
+    this.isTransitioning = true;
+
+    const fade = document.createElement('div');
+    fade.style.cssText = 'position:absolute;inset:0;background:#000;opacity:0;z-index:999;';
+    this.stage.appendChild(fade);
+    await gsap.to(fade, { opacity: 1, duration: 0.25, ease: 'power2.inOut' });
+
+    if (this.scenes[this.currentSceneIndex] && this.scenes[this.currentSceneIndex].teardown) {
+      this.scenes[this.currentSceneIndex].teardown();
+    }
+    this.stage.innerHTML = '';
+    this.stage.appendChild(fade);
+
+    this.currentSceneIndex = sceneIndex;
+    this.currentStep = step;
+    const scene = this.scenes[sceneIndex];
+    scene.setup(this.stage, this.preloader);
+
+    await gsap.to(fade, { opacity: 0, duration: 0.25, ease: 'power2.inOut' });
+    fade.remove();
+
+    await scene.step(step);
+    this.isTransitioning = false;
+    this.updateDebug();
   }
 
   showPlaceholder() {

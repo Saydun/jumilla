@@ -2,95 +2,44 @@
    Estilos por escena. Cada escena añade aquí su bloque conforme se implementa. */
 
 /* ============================================================
-   BLOQUE 4 · Cierre y cocktail  (scenes/07-cierre.js)
+   BLOQUE 4 · Cierre  (scenes/07-cierre.js)
+   1 pulsación · misma plantilla visual que la (12, 2) alcaldesa durante el
+   discurso (Monastrell + vídeo + overlay 78 %) con los "logos final" centrados
+   en pequeño. Es la última diapositiva de la presentación.
    ============================================================ */
 
 .cie-root {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: var(--negro-enriquecido);
+  background: var(--monastrell);   /* base: si falla el vídeo, queda el Monastrell */
 }
-
-/* Cada pulsación es una página absolute inset 0 con su propio fondo. */
-.cie-page {
+.cie-video {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 36px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.cie-page.is-dark { background: var(--negro-enriquecido); }
-.cie-page.is-monastrell { background: var(--monastrell); }
-
-/* Puls. 59 · Agradecimiento */
-.cie-gracias {
-  font-family: 'Match', sans-serif;
-  font-weight: 700;
-  font-size: 320px;
-  line-height: 1;
-  color: var(--blanco);
-  margin: 0;
-  white-space: nowrap;
-}
-
-.cie-logo svg { display: block; height: 280px; width: auto; }
-
-/* Puls. 60 · Invitación cocktail */
-.cie-os {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
-}
-.cie-cocktail {
-  font-family: 'Match', sans-serif;
-  font-weight: 700;
-  font-size: 220px;
-  line-height: 1;
-  color: var(--blanco);
-  margin: 0;
-}
-.cie-con {
-  font-family: 'Match', sans-serif;
-  font-weight: 700;
-  font-size: 96px;
-  line-height: 1.1;
-  color: var(--blanco);
-  margin: 0;
-  text-align: center;
-}
-
-/* Loop de cierre (step 3) · ciclo de 3 frases en fondo Monastrell. */
-.cie-loop-slide {
+.cie-overlay {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 120px;
+  background: var(--monastrell);
+  opacity: 0.78;
 }
-.cie-loop-text {
-  font-family: 'Match', sans-serif;
-  font-weight: 700;
-  font-size: 132px;
-  line-height: 1.15;
-  color: var(--blanco);
-  margin: 0;
-  max-width: 1700px;
-}
-.cie-loop-iso {
+/* Centrado: GSAP gestiona xPercent/yPercent (-50) en setup; CSS solo coloca el
+   origen del elemento en (50%, 50%). De este modo el scale animado por GSAP NO
+   sobrescribe el translate de centrado. */
+.cie-logos {
   position: absolute;
-  bottom: 70px;
-  right: 80px;
-  opacity: 0.3;
-  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  width: 400px;        /* "pequeñitos" · ~19 % del ancho del stage */
+  max-width: 90%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
 }
-.cie-loop-iso svg { display: block; height: 90px; width: auto; }
 
 /* ============================================================
    BLOQUE 2.6 · Tipografía  (scenes/09-tipografia.js)
@@ -565,6 +514,17 @@
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.45));
+}
+
+/* Mockups marcados con `compact: true` (p. ej. TEXTIL, que viene como composición
+   ya unificada en PS) usan max-height reducido para no dominar el layout. */
+.apl-mock-img.is-compact img {
+  max-height: 480px;
+}
+/* La 3ª imagen del array (totebag) ocupa la columna derecha completa, ambas filas. */
+.apl-mock-img.is-grid img:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
 .apl-mock-info {

@@ -31,11 +31,11 @@ const ASSETS = {
     '/mockups/mock_rollup@2x.png',
     '/mockups/mock_flyer@2x.png',
     '/mockups/mock_sello@2x.png',
-    '/mockups/mock_camiseta@2x.png',
-    '/mockups/mock_gorra@2x.png',
+    '/mockups/mock_textil.png',
     '/mockups/mock_pulsera@2x.png',
     '/mockups/mock_laptop@2x.png',
-    '/mockups/mock_movil@2x.png'
+    '/mockups/mock_movil@2x.png',
+    '/logo/logos final@2x.png'
   ]
 };
 
